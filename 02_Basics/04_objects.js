@@ -45,9 +45,29 @@ const obj4 = {5:"e", 6:"f"}
 // ]
 // console.log(arrryOfObject[0].name);
 
-console.log(Object.keys(tinderuser)); //it return array of keys
-console.log(Object.values(tinderuser));
-console.log(Object.entries(tinderuser));//it return nested array of keys and value pair
+// console.log(Object.keys(tinderuser)); //it return array of keys
+// console.log(Object.values(tinderuser));
+// console.log(Object.entries(tinderuser));//it return nested array of keys and value pair
 
 //checking a pproparty exists or not
-console.log(tinderuser.hasOwnProperty("isLogged")); //return boolean value
+// console.log(tinderuser.hasOwnProperty("isLogged")); //return boolean value
+
+
+
+const course = {
+    courseName: "JavaScript",
+    price: 999,
+    courseInstructor: "Anupam"
+}
+
+//Object De-structuring 1
+/*
+const {courseInstructor} = course
+console.log(courseInstructor)
+*/
+
+//Object De-structuring 2
+/*
+const {courseInstructor:instructor} = course
+console.log(instructor);
+*/
