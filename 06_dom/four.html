@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #ffff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+    
+</body>
+<script>
+    //add value using DOM
+    function addLanguage(langName){
+        const li = document.createElement("li")
+        li.innerHTML = `${langName}`
+        document.querySelector(".language").appendChild(li)
+    }
+    addLanguage("typeScript")
+    addLanguage("python");
+
+    //in the upper function we user innerHTML which is not efficieint beacasue to add a text innerHTML have to traverse the whole tree structure, so now we are using a optimal method to add text using DOM
+
+    function addOPtiLanguage(langName){
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li)
+    }
+
+    addOPtiLanguage("golang")
+
+
+    //value edit 
+    const secondLang = document.querySelector("li:nth-Child(2)")
+    // console.log(secondLang);
+    // secondLang.innerHTML = "JAVA"
+    const li = document.createElement("li")
+    li.textContent = "JAVA"
+    secondLang.replaceWith(li)
+
+    //another value edit approach
+    const firstlang = document.querySelector("li:first-child")
+    // console.log(firstlang);
+    firstlang.outerHTML = "<li>ruby</li>"
+
+
+    //remove
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+
+    
+</script>
+</html>
