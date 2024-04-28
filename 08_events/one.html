@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //using onclick="alert('owl')" in HTML tag is not a feasible when our code scale up
+
+    //another approach --> it is not a bad approach but in this approach we not get many information.
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl')
+    // }
+
+    //here is the third and best aapproach is using event listner -> 
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert('click again')
+    // },false)
+    //most of the times we ignore the third parameter because, in default the third parameter is false but some times in interview we gave some problems which is unable to solve without using the third parameter.
+
+    //some importent event listner we have to learn ->
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert('click again')
+    // },true)
+    //if we true the third parameter we can't see any difference but -> there is two types of event propagation 1.event bubbling and 2. event captureing, most of the times we use the event bubbling.
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     // alert('ul clicked')
+    //     console.log('ul clicked')
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     // alert('owl clicked')
+    //     console.log('owl clicked')
+    //     e.stopPropagation();
+    // },false)
+    //here the third parameter false means we are using the bubbling mode means, if we clicked on the owl then we see that first owl alert is displayed then the ul alert is displayed becuase it is un bubble event mode but it is not true always if we want to capture the ul first then we have to use the capturig mode means the third parameter is true.
+    //it is all about the use case of developer.
+    //here stopPropagation() is used to not propagate the bubble, it differentitate the inner element and the outer element. it is used only the bubble mode, not capture mode.
+
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     console.log('google clicked')
+    //     e.preventDefault()
+    // },false)
+
+
+
+    //Now we prepare a project -> when we click on a image the image should vanish.
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName == 'IMG'){
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
+
+
+
+
+
+
+</script>
+</html>
