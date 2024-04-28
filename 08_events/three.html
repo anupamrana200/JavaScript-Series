@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> chai aur code </h2>
+
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    
+</body>
+<script>
+    let change = 1
+    const sayAnupam = function(){
+        console.log("Anupam",Date.now());
+        if((change%2) === 0){
+            document.querySelector('h2').innerHTML = "Best java Script course"
+        } else {
+            document.querySelector('h2').innerHTML = "Chai aur code"
+        }
+        if(change > 100){
+            change = 1
+        } else {
+            change++
+        }
+        
+        
+    }
+    let changeMe;
+
+    document.querySelector('#start').addEventListener('click',function(){
+        changeMe = setInterval(sayAnupam,600)
+        console.log('started');
+    })
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(changeMe)
+        console.log("stopped");
+    })
+
+
+
+
+    
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> chai aur code </h2>
+    <button id="stop">stop</button>
+</body>
+<script>
+    //setTimeout is used to perform a operation after some times, setTimeout executed only once but if we use setInterval then it executed repeatedly after a certain given time.
+    const sayAnupam = function(){
+        console.log("Anupam");
+        document.querySelector('h2').innerHTML = 'Best javascript course'
+    }
+    const changeMe = setTimeout(sayAnupam,2000)
+
+    //lets see how to stop setTimeout using clearTimeout similerly for setInterval we can use clearInterval -->
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("stopped");
+    })
+
+
+
+
+    
+</script>
+</html>
